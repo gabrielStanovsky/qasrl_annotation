@@ -328,25 +328,33 @@ public class XSSFOutputHelper {
 			verb = verb.substring(idx + 1);
 		}
 		ArrayList<Integer> inflIds = inflDict.inflMap.get(verb);
-		if (inflIds == null) {
-			return null;
-		}
 		
-		int bestId = -1, bestCount = -1;
-		for (int i = 0; i < inflIds.size(); i++) {
-			int count = inflDict.inflCount[inflIds.get(i)];
-			if (count > bestCount) {
-				bestId = inflIds.get(i);
-				bestCount = count;
-			}
-		}
 		// Generate list for dropdown.
 		HashSet<String> opSet= new HashSet<String>();
 		ArrayList<String> options = new ArrayList<String>();
 		String[] inflections = new String[5];
-		for (int i = 0; i < 5; i++) {
-			inflections[i] = verbPrefix + inflDict.inflections.get(bestId)[i];
+		if (inflIds != null) {
+			int bestId = -1, bestCount = -1;
+			for (int i = 0; i < inflIds.size(); i++) {
+				int count = inflDict.inflCount[inflIds.get(i)];
+				if (count > bestCount) {
+					bestId = inflIds.get(i);
+					bestCount = count;
+				}
+			}
+			for (int i = 0; i < 5; i++) {
+				inflections[i] = verbPrefix + inflDict.inflections.get(bestId)[i];
+			}
+			
 		}
+		
+		else {
+			for (int i = 0; i < 5; i++) {
+				inflections[i] = verbPrefix + verb;
+			}
+		}
+		
+		
 		
 		// boolean usePresentParticiple = (verb.toLowerCase().endsWith("ing"));	
 		for (int i = 0; i < inflections.length; i++) {

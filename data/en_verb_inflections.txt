@@ -133,6 +133,7 @@ ID	IDs	IDing	IDed	IDed
 IRC	IRCs	IRCing	IRCed	IRCed
 Indianise	Indianises	Indianising	Indianised	Indianised
 Indianize	Indianizes	Indianizing	Indianized	Indianized
+Indications	Indications	Indications	Indications	Indications
 Instagram	Instagrams	Instagramming	Instagrammed	Instagrammed
 Iranianise	Iranianises	Iranianising	Iranianised	Iranianised
 Iranianize	Iranianizes	Iranianizing	Iranianized	Iranianized
